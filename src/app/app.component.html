@@ -1,7 +1,13 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Tableau de bord</a>
-  <a routerLink="/heroes">Les héros</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>{{ title }}</h1>
+    <div>
+      <button mat-button routerLink="/dashboard">Tableau de bord</button>
+      <button mat-button routerLink="/heroes">Les héros</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="container">
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>
