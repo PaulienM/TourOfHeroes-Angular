@@ -2,9 +2,28 @@
   <h2>Les details de {{hero.name | uppercase}}</h2>
   <div><span>id: </span>{{hero.id}}</div>
   <div>
-    <label>nom:
-      <input [(ngModel)]="hero.name" placeholder="nom">
-    </label>
+    <div>
+      <label>nom:
+        <input [(ngModel)]="hero.name" placeholder="nom">
+      </label>
+    </div>
+    <p>Points restants : {{restant}}</p>
+    <div>
+      <label>Attaque: {{hero.attaque}}</label><br>
+      <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.attaque-0.35)/40*80+'vw'}" min="1" [max]="restant + hero.attaque" thumbLabel [(ngModel)]="hero.attaque">max
+    </div>
+    <div>
+      <label>Esquive: {{hero.esquive}}</label><br>
+      <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.esquive-0.35)/40*80+'vw'}" min="1" [max]="restant + hero.esquive" thumbLabel [(ngModel)]="hero.esquive">max
+    </div>
+    <div>
+      <label>Dégats: {{hero.degat}}</label><br>
+      <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.degat-0.35)/40*80+'vw'}"  min="1" [max]="restant + hero.degat" thumbLabel [(ngModel)]="hero.degat">max
+    </div>
+    <div>
+      <label>PV: {{hero.pv}}</label><br>
+      <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.pv-0.35)/40*80+'vw'}" min="1" [max]="restant + hero.pv" thumbLabel [(ngModel)]="hero.pv">max
+    </div>
   </div>
   <button mat-button (click)="goBack()">Retour</button>
 </div>
