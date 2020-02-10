@@ -25,5 +25,6 @@
       <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.pv-0.35)/40*80+'vw'}" min="1" [max]="restant + hero.pv" thumbLabel [(ngModel)]="hero.pv">max
     </div>
   </div>
+  <button mat-button color="primary" (click)="updateHero()">Enregistrer</button>
   <button mat-button (click)="goBack()">Retour</button>
 </div>

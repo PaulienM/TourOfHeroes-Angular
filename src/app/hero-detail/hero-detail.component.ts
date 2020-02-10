@@ -36,4 +36,8 @@ export class HeroDetailComponent implements DoCheck, OnInit {
   goBack() {
     this.location.back();
   }
+
+  updateHero() {
+    this.heroService.updateHero(this.hero);
+  }
 }
