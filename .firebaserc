@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tour-of-heroes-a90b6": {
+      "hosting": {
+        "angular-tour-of-heroes-marangep": [
+          "tour-of-heroes-a90b6"
+        ]
+      }
+    }
+  }
+}

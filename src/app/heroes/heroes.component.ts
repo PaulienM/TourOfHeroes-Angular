@@ -9,7 +9,6 @@ import {HeroService} from '../service/hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
-
   constructor(private heroService: HeroService) { }
 
   getHeroes(): void {
