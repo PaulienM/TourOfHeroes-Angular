@@ -1,7 +1,16 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import "~bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 
 button {
   outline: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  margin: 4em;
 }

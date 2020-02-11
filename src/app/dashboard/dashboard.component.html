@@ -1,11 +1,10 @@
 <h3>Les meilleurs Heros</h3>
-<div class="row">
-  <div *ngFor="let hero of heroes"
-       class="col-md-3">
+<mat-grid-list cols="4">
+  <mat-grid-tile *ngFor="let hero of heroes">
     <button mat-button
             class="dashboard-item"
             routerLink="/detail/{{hero.id}}">
       {{ hero.name }}
     </button>
-  </div>
-</div>
+  </mat-grid-tile>
+</mat-grid-list>

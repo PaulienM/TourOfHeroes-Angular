@@ -9,10 +9,11 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatIconModule, MatListModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { ArmesComponent } from './armes/armes.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ArmesComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     MatListModule,
+    MatGridListModule,
     // imports firebase/firestore, only needed for database features
   ],
   providers: [],
