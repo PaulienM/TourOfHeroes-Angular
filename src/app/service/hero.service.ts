@@ -51,7 +51,8 @@ export class HeroService {
   }
 
   addHero(hero: Hero) {
-    this.db.collection<Hero>(HeroService.url).add(Object.assign({}, hero));
+    const result = this.db.collection<Hero>(HeroService.url).add(Object.assign({}, hero));
+    return result;
   }
 
   updateHero(hero: Hero) {

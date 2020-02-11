@@ -1,9 +1,15 @@
 .list-item {
   background-color: #EEE;
-  border: lightgrey;
+  border: solid 1px lightgrey;
   p {
     display: inline;
     vertical-align: top;
     margin: 0 10px;
   }
+}
+
+.list-item-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

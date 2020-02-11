@@ -20,4 +20,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+  removeHero(hero: Hero) {
+    this.heroService.deleteHero(hero.id);
+  }
 }

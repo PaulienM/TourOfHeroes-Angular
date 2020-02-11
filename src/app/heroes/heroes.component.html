@@ -1,9 +1,14 @@
 <h2>Liste des heros</h2>
 <mat-list>
   <mat-list-item *ngFor="let hero of heroes" class="list-item">
-    <a routerLink="/detail/{{hero.id}}">
-      <mat-icon matlisticon>launch</mat-icon>
-      <p>{{hero.name}}</p>
-    </a>
+    <div class="list-item-content">
+      <a routerLink="/detail/{{hero.id}}">
+        <mat-icon>launch</mat-icon>
+        <p>{{hero.name}}</p>
+      </a>
+      <button mat-icon-button (click)="removeHero(hero)">
+        <mat-icon matListIcon color="warn">delete</mat-icon>
+      </button>
+    </div>
   </mat-list-item>
 </mat-list>
