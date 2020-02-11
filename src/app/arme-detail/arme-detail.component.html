@@ -1,0 +1,31 @@
+<div *ngIf="arme">
+  <h2>Les details de {{arme.name | uppercase}}</h2>
+  <div><span>id: </span>{{arme.id}}</div>
+  <div>
+    <div>
+      <label>nom:
+        <input [(ngModel)]="arme.name" placeholder="nom">
+      </label>
+    </div>
+    <p>Total : {{total}}</p>
+    <div>
+      <label>Attaque</label><br>
+      <mat-slider thumbLabel min="-5" max="5" [(ngModel)]="arme.attaque"></mat-slider>
+    </div>
+    <div>
+      <label>Esquive</label><br>
+      <mat-slider thumbLabel min="-5" max="5" [(ngModel)]="arme.esquive"></mat-slider>
+    </div>
+    <div>
+      <label>Dégats</label><br>
+      <mat-slider thumbLabel min="-5" max="5" [(ngModel)]="arme.degat"></mat-slider>
+    </div>
+    <div>
+      <label>PV</label><br>
+      <mat-slider thumbLabel min="-5" max="5" [(ngModel)]="arme.pv"></mat-slider>
+    </div>
+  </div>
+  {{message}}<br>
+  <button mat-flat-button color="primary" (click)="updateArme()">Enregistrer</button>
+  <button mat-stroked-button (click)="goBack()">Retour</button>
+</div>
