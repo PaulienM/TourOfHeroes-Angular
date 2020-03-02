@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatCardModule,
   MatGridListModule,
-  MatIconModule,
+  MatIconModule, MatInputModule,
   MatListModule,
   MatMenuModule,
   MatSliderModule,
@@ -49,6 +49,7 @@ import { ArmeDetailComponent } from './arme-detail/arme-detail.component';
     MatGridListModule,
     MatSliderModule,
     MatCardModule,
+    MatInputModule,
     // imports firebase/firestore, only needed for database features
   ],
   providers: [],

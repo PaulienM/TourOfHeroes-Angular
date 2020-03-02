@@ -3,29 +3,35 @@
   <div><span>id: </span>{{arme.id}}</div>
   <div>
     <div>
-      <label>nom:
-        <input [(ngModel)]="arme.name" placeholder="nom">
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom de l'arme</mat-label>
+        <input matInput [(ngModel)]="arme.name" placeholder="nom">
+      </mat-form-field>
     </div>
     <p>Total : {{total}}</p>
-    <div>
-      <label>Attaque</label><br>
-      <mat-slider thumbLabel min="-5" max="5" [(ngModel)]="arme.attaque"></mat-slider>
-    </div>
-    <div>
-      <label>Esquive</label><br>
-      <mat-slider thumbLabel min="-5" max="5" [(ngModel)]="arme.esquive"></mat-slider>
-    </div>
-    <div>
-      <label>Dégats</label><br>
-      <mat-slider thumbLabel min="-5" max="5" [(ngModel)]="arme.degat"></mat-slider>
-    </div>
-    <div>
-      <label>PV</label><br>
-      <mat-slider thumbLabel min="-5" max="5" [(ngModel)]="arme.pv"></mat-slider>
-    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Attaque</mat-label>
+      <input matInput type="number" min="-5" max="5" [(ngModel)]="arme.attaque">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Esquive</mat-label>
+      <input matInput type="number" min="-5" max="5" [(ngModel)]="arme.esquive">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Dégats</mat-label>
+      <input matInput type="number" min="-5" max="5" [(ngModel)]="arme.degat">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>PV</mat-label>
+      <input matInput type="number" min="-5" max="5" [(ngModel)]="arme.pv">
+    </mat-form-field>
   </div>
-  {{message}}<br>
+  <mat-card *ngIf="errorMessage !== ''" class="message error">
+    {{errorMessage}}
+  </mat-card>
+  <mat-card *ngIf="validationMessage !== ''" class="message validation">
+    {{validationMessage}}
+  </mat-card>
   <button mat-flat-button color="primary" (click)="updateArme()">Enregistrer</button>
   <button mat-stroked-button (click)="goBack()">Retour</button>
 </div>

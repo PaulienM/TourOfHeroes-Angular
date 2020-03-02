@@ -12,7 +12,8 @@ import {Arme} from '../data/arme';
 export class ArmeDetailComponent implements OnInit, DoCheck {
   @Input() arme: Arme;
   total: number;
-  message: string;
+  errorMessage: string;
+  validationMessage: string;
 
   constructor(private armeService: ArmeService,
               private route: ActivatedRoute,
@@ -23,7 +24,8 @@ export class ArmeDetailComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this.message = '';
+    this.errorMessage = '';
+    this.validationMessage = '';
     this.getArme();
     this.total = this.getTotal();
   }
@@ -40,9 +42,11 @@ export class ArmeDetailComponent implements OnInit, DoCheck {
 
   updateArme() {
     if (this.getTotal() !== 0) {
-      this.message = 'Le total des point doit etre égal à 0';
+      this.errorMessage = 'Le total des point doit etre égal à 0';
+      this.validationMessage = '';
     } else {
-      this.message = '';
+      this.validationMessage = 'L\'arme a été enregistré';
+      this.errorMessage = '';
       this.armeService.updateArme(this.arme);
     }
   }
