@@ -14,7 +14,7 @@ import {
   MatGridListModule,
   MatIconModule, MatInputModule,
   MatListModule,
-  MatMenuModule,
+  MatMenuModule, MatProgressBarModule,
   MatSliderModule,
   MatToolbarModule
 } from '@angular/material';
@@ -23,6 +23,7 @@ import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { ArmesComponent } from './armes/armes.component';
 import { ArmeDetailComponent } from './arme-detail/arme-detail.component';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,8 @@ import { ArmeDetailComponent } from './arme-detail/arme-detail.component';
     MatSliderModule,
     MatCardModule,
     MatInputModule,
+    ChartsModule,
+    MatProgressBarModule,
     // imports firebase/firestore, only needed for database features
   ],
   providers: [],
