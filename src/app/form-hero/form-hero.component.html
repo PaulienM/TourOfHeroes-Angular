@@ -1,0 +1,33 @@
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Nom du héro</mat-label>
+    <input matInput
+           placeholder="nom"
+           [(ngModel)]="hero.name">
+  </mat-form-field>
+  <p>Points restants : {{restant}}</p>
+  <div>
+    <label>Attaque: {{hero.attaque}}</label><br>
+    <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.attaque-0.35)/40*80+'vw'}" min="1" [max]="restant + hero.attaque" thumbLabel [(ngModel)]="hero.attaque">max
+  </div>
+  <div>
+    <label>Esquive: {{hero.esquive}}</label><br>
+    <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.esquive-0.35)/40*80+'vw'}" min="1" [max]="restant + hero.esquive" thumbLabel [(ngModel)]="hero.esquive">max
+  </div>
+  <div>
+    <label>Dégats: {{hero.degat}}</label><br>
+    <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.degat-0.35)/40*80+'vw'}"  min="1" [max]="restant + hero.degat" thumbLabel [(ngModel)]="hero.degat">max
+  </div>
+  <div>
+    <label>PV: {{hero.pv}}</label><br>
+    <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.pv-0.35)/40*80+'vw'}" min="1" [max]="restant + hero.pv" thumbLabel [(ngModel)]="hero.pv">max
+  </div>
+</div>
+<mat-card *ngIf="errorMessage !== ''" class="error message">
+  {{errorMessage}}
+</mat-card>
+<mat-card *ngIf="validationMessage !== ''" class="validation message">
+  {{validationMessage}}
+</mat-card>
+<button mat-flat-button color="primary" (click)="save()">Enregistrer</button>
+<button mat-stroked-button (click)="goBack()">Retour</button>

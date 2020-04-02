@@ -1,0 +1,5 @@
+<div *ngIf="hero">
+  <h2>Les details de {{hero.name | uppercase}}</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <app-form-hero [hero]="hero" [edit]="true"></app-form-hero>
+</div>

@@ -1,0 +1,5 @@
+<div *ngIf="arme">
+  <h2>Les details de {{arme.name | uppercase}}</h2>
+  <div><span>id: </span>{{arme.id}}</div>
+  <app-form-arme [arme]="arme" [edit]="true"></app-form-arme>
+</div>
