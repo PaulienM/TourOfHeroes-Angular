@@ -10,7 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatButtonModule, MatCardModule,
+  MatButtonModule, MatCardModule, MatExpansionModule,
   MatGridListModule,
   MatIconModule, MatInputModule,
   MatListModule,
@@ -61,6 +61,7 @@ import { FormArmeComponent } from './form-arme/form-arme.component';
     MatInputModule,
     ChartsModule,
     MatProgressBarModule,
+    MatExpansionModule,
     // imports firebase/firestore, only needed for database features
   ],
   providers: [],
