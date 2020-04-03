@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Hero} from '../data/hero';
 import {Arme} from '../data/arme';
+import { Sort } from '../data/sort';
 
 @Injectable({
   providedIn: 'root'
