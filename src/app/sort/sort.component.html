@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>Trier :</mat-card-title>
+  <mat-form-field appearance="outline">
+    <mat-label>Attribut</mat-label>
+    <mat-select [(ngModel)]="sort.attribute">
+      <mat-option value="attaque">Attaque</mat-option>
+      <mat-option value="degat">Dégats</mat-option>
+      <mat-option value="pv">PV</mat-option>
+      <mat-option value="esquive">Esquive</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Ordre</mat-label>
+    <mat-select [(ngModel)]="sort.order">
+      <mat-option [value]="true">Croissant</mat-option>
+      <mat-option [value]="false">Décroissant</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="validate()">Valider</button>
+</mat-card>

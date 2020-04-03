@@ -1,5 +1,6 @@
 <h2>Liste des armes</h2>
 <app-filter [filter]="filter" (event)="filtrer()" [min]="-5" [max]="5"></app-filter>
+<app-sort [sort]="sort" (event)="sorting()"></app-sort>
 <mat-accordion *ngIf="!isLoading">
   <mat-expansion-panel *ngFor="let arme of armes">
     <mat-expansion-panel-header>

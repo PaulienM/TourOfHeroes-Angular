@@ -6,6 +6,8 @@ import {Label} from 'ng2-charts';
 import {Filter} from '../data/filter';
 import {FilterService} from '../service/filter.service';
 import {ArmeService} from '../service/arme.service';
+import {Sort} from '../data/sort';
+import {SortService} from '../service/sort.service';
 
 @Component({
   selector: 'app-heroes',
@@ -14,7 +16,9 @@ import {ArmeService} from '../service/arme.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Array<any> = [];
+  allHeroes: Array<any> = [];
   filter: Filter;
+  sort: Sort;
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
     scale: {
@@ -29,6 +33,7 @@ export class HeroesComponent implements OnInit {
 
   constructor(private heroService: HeroService,
               private filterService: FilterService,
+              private sortService: SortService,
               private armeService: ArmeService) { }
 
   getHeroes(): void {
@@ -43,6 +48,9 @@ export class HeroesComponent implements OnInit {
         // On filtre les héro grace au service filtre
         // @ts-ignore
         heroes = this.filterService.filter(heroes, this.filter);
+        // On trie les héro
+        // @ts-ignore
+        heroes = this.sortService.sort(heroes, this.sort);
         // Pour chaque héro
         heroes.forEach((hero) => {
           // On créé une variable pour stocker les données du héro formatées pour ng2chart
@@ -66,6 +74,8 @@ export class HeroesComponent implements OnInit {
           heroesWithChartData.push(heroWithChartData);
         });
         this.heroes = heroesWithChartData;
+        // Variable qui stocke tous les héros. Utilisé pour récupérer tous les héro après les avoir filtré
+        this.allHeroes = this.heroes;
         // Le chargement est terminé
         this.isLoading = false;
       });
@@ -74,6 +84,7 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.getHeroes();
     this.filter = new Filter();
+    this.sort = new Sort();
   }
 
   removeHero(hero: Hero) {
@@ -83,6 +94,10 @@ export class HeroesComponent implements OnInit {
   }
 
   filtrer() {
-    this.getHeroes();
+    this.heroes = this.filterService.filter(this.allHeroes, this.filter);
+  }
+
+  sorting() {
+    this.heroes = this.sortService.sort(this.heroes, this.sort);
   }
 }

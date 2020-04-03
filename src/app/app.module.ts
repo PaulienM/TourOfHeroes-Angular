@@ -29,6 +29,7 @@ import { CreateHeroComponent } from './create-hero/create-hero.component';
 import { CreateArmeComponent } from './create-arme/create-arme.component';
 import { FormArmeComponent } from './form-arme/form-arme.component';
 import { FilterComponent } from './filter/filter.component';
+import { SortComponent } from './sort/sort.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FilterComponent } from './filter/filter.component';
     CreateHeroComponent,
     CreateArmeComponent,
     FormArmeComponent,
-    FilterComponent
+    FilterComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 <h2>Liste des heros</h2>
 <app-filter [filter]="filter" (event)="filtrer()" [max]="40" [min]="0"></app-filter>
+<app-sort [sort]="sort" (event)="sorting()"></app-sort>
 <mat-accordion *ngIf="!isLoading">
   <mat-expansion-panel *ngFor="let hero of heroes">
     <mat-expansion-panel-header>
