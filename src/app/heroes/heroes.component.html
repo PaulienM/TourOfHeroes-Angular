@@ -12,7 +12,8 @@
     <button mat-icon-button (click)="removeHero(hero)">
       <mat-icon matListIcon color="warn">delete</mat-icon>
     </button>
-    <canvas baseChart
+    <canvas height="50vh"
+            baseChart
             [datasets]="hero.chartData"
             [options]="radarChartOptions"
             [labels]="radarChartLabels"
