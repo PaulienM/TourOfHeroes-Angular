@@ -8,6 +8,8 @@ import {Filter} from '../data/filter';
 })
 export class FilterComponent implements OnInit {
   @Input() filter: Filter;
+  @Input() min: number;
+  @Input() max: number;
   @Output() event = new EventEmitter();
 
   constructor() { }
