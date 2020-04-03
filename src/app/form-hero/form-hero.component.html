@@ -25,6 +25,7 @@
   <mat-form-field appearance="outline">
     <mat-label>Armes</mat-label>
     <mat-select [(ngModel)]="hero.armeId">
+      <mat-option value="">Aucune arme</mat-option>
       <mat-option *ngFor="let arme of armes" [value]="arme.id">{{arme.name}}</mat-option>
     </mat-select>
   </mat-form-field>

@@ -19,7 +19,6 @@ export class ArmesComponent implements OnInit {
     scale: {
       ticks: {
         suggestedMin: -5,
-        suggestedMax: 5
       }
     }
   };
