@@ -1,14 +1,25 @@
 <h2>Liste des armes</h2>
-<mat-list>
-  <mat-list-item *ngFor="let arme of armes" class="list-item">
-    <div class="list-item-content">
-      <a routerLink="/detail-arme/{{arme.id}}">
-        <mat-icon>launch</mat-icon>
-        <p>{{arme.name}}</p>
-      </a>
-      <button mat-icon-button (click)="removeArme(arme)">
-        <mat-icon matListIcon color="warn">delete</mat-icon>
-      </button>
-    </div>
-  </mat-list-item>
-</mat-list>
+<mat-accordion *ngIf="!isLoading">
+  <mat-expansion-panel *ngFor="let arme of armes">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{arme.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button mat-icon-button color="primary" routerLink="/detail-arme/{{arme.id}}">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="removeArme(arme)">
+      <mat-icon matListIcon color="warn">delete</mat-icon>
+    </button>
+    <canvas height="50vh"
+            baseChart
+            [datasets]="arme.chartData"
+            [options]="radarChartOptions"
+            [labels]="radarChartLabels"
+            [chartType]="radarChartType"
+            class="chart">
+    </canvas>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
