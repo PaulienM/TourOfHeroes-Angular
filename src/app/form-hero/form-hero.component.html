@@ -22,6 +22,12 @@
     <label>PV: {{hero.pv}}</label><br>
     <input class="slider" type="range" [ngStyle]="{'width': (restant+hero.pv-0.35)/40*80+'vw'}" min="1" [max]="restant + hero.pv" thumbLabel [(ngModel)]="hero.pv">max
   </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Armes</mat-label>
+    <mat-select [(ngModel)]="hero.armeId">
+      <mat-option *ngFor="let arme of armes" [value]="arme.id">{{arme.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 <mat-card *ngIf="errorMessage !== ''" class="error message">
   {{errorMessage}}

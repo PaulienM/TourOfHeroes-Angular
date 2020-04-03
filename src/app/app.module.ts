@@ -14,7 +14,7 @@ import {
   MatGridListModule,
   MatIconModule, MatInputModule,
   MatListModule,
-  MatMenuModule, MatProgressBarModule,
+  MatMenuModule, MatProgressBarModule, MatSelectModule,
   MatSliderModule,
   MatToolbarModule
 } from '@angular/material';
@@ -64,6 +64,7 @@ import { FilterComponent } from './filter/filter.component';
     ChartsModule,
     MatProgressBarModule,
     MatExpansionModule,
+    MatSelectModule,
     // imports firebase/firestore, only needed for database features
   ],
   providers: [],

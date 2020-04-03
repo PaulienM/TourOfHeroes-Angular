@@ -7,6 +7,7 @@ export class Hero extends Serializable {
   esquive: number;
   degat: number;
   pv: number;
+  armeId: string;
 
   constructor() {
     super();

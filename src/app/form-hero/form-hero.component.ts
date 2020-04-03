@@ -3,6 +3,8 @@ import {Hero} from '../data/hero';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HeroService} from '../service/hero.service';
 import {Location} from '@angular/common';
+import {Arme} from '../data/arme';
+import {ArmeService} from '../service/arme.service';
 
 @Component({
   selector: 'app-form-hero',
@@ -12,6 +14,7 @@ import {Location} from '@angular/common';
 export class FormHeroComponent implements DoCheck, OnInit {
   @Input() hero: Hero;
   @Input() edit: boolean;
+  armes: Array<Arme>;
   restant: number;
   errorMessage: string;
   validationMessage: string;
@@ -19,6 +22,7 @@ export class FormHeroComponent implements DoCheck, OnInit {
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
+    private armeService: ArmeService,
     private location: Location,
     private router: Router
   ) {
@@ -27,6 +31,7 @@ export class FormHeroComponent implements DoCheck, OnInit {
   }
 
   ngOnInit(): void {
+    this.armeService.getArmes().subscribe(armes => this.armes = armes);
     if (!this.edit) {
       this.hero = new Hero();
     }
