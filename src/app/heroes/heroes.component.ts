@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Hero } from '../data/hero';
 import {HeroService} from '../service/hero.service';
 import {ChartDataSets, ChartType, RadialChartOptions} from 'chart.js';
 import {Label} from 'ng2-charts';
+import {Filter} from '../data/filter';
+import {FilterService} from '../service/filter.service';
 
 @Component({
   selector: 'app-heroes',
@@ -11,6 +13,7 @@ import {Label} from 'ng2-charts';
 })
 export class HeroesComponent implements OnInit {
   heroes: Array<any> = [];
+  filter: Filter;
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
     scale: {
@@ -24,13 +27,15 @@ export class HeroesComponent implements OnInit {
   public radarChartType: ChartType = 'radar';
   public isLoading = true;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+              private filterService: FilterService) { }
 
   getHeroes(): void {
     this.isLoading = true;
     const heroesWithChartData = [];
     this.heroService.getHeroes()
       .subscribe((heroes) => {
+        heroes = this.filterService.filter(heroes, this.filter);
         heroes.forEach((hero) => {
             let heroWithChartData: object;
             const chartData: ChartDataSets[] = [
@@ -46,11 +51,16 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     this.getHeroes();
+    this.filter = new Filter();
   }
 
   removeHero(hero: Hero) {
     this.heroService.deleteHero(hero.id);
     this.heroes.splice(this.heroes.indexOf(hero), 1);
+    this.getHeroes();
+  }
+
+  filtrer() {
     this.getHeroes();
   }
 }

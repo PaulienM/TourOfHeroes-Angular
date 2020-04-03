@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>Filtres :</mat-card-title>
+  <mat-grid-list cols="2" rowHeight="80">
+    <mat-grid-tile>
+      <p>Attaque</p>
+      <mat-slider min="0" max="40" step="1" thumbLabel [(ngModel)]="filter.attaque"></mat-slider>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p>Esquive</p>
+      <mat-slider min="0" max="40" step="1" thumbLabel [(ngModel)]="filter.esquive"></mat-slider>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p>Dégats</p>
+      <mat-slider min="0" max="40" step="1" thumbLabel [(ngModel)]="filter.degat"></mat-slider>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p>PV</p>
+      <mat-slider min="0" max="40" step="1" thumbLabel [(ngModel)]="filter.pv"></mat-slider>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <button mat-flat-button color="primary" (click)="validate()">Valider</button>
+</mat-card>

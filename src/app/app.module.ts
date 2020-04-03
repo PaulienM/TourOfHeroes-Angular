@@ -28,6 +28,7 @@ import { FormHeroComponent } from './form-hero/form-hero.component';
 import { CreateHeroComponent } from './create-hero/create-hero.component';
 import { CreateArmeComponent } from './create-arme/create-arme.component';
 import { FormArmeComponent } from './form-arme/form-arme.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FormArmeComponent } from './form-arme/form-arme.component';
     FormHeroComponent,
     CreateHeroComponent,
     CreateArmeComponent,
-    FormArmeComponent
+    FormArmeComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
