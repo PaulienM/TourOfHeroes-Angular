@@ -39,32 +39,24 @@ export class FormArmeComponent implements OnInit, DoCheck {
   }
 
   save() {
-    if (this.edit) {
-      this.updateArme();
-    } else {
-      this.insertArme();
-    }
-  }
-
-  updateArme() {
-    if (this.getTotal() !== 0) {
+    if (this.getTotal() !== 0 ) {
       this.errorMessage = 'Le total des point doit etre égal à 0';
       this.validationMessage = '';
-    } else {
-      this.validationMessage = 'L\'arme a été enregistré';
-      this.errorMessage = '';
-      this.armeService.updateArme(this.arme);
-    }
-  }
-
-  insertArme() {
-    if (this.getTotal() !== 0) {
-      this.errorMessage = 'Le total des point doit etre égal à 0';
+    } else if (Math.abs(this.arme.pv) > 5 ||
+               Math.abs(this.arme.attaque) > 5 ||
+               Math.abs(this.arme.esquive) > 5 ||
+               Math.abs(this.arme.degat) > 5 ) {
+      this.errorMessage = 'Les point doivent être compris entre -5 et 5';
+      this.validationMessage = '';
+    } else if (this.arme.name === '' || this.arme.name === undefined) {
+      this.errorMessage = 'Le nom de l\'arme ne doit pas être vide';
       this.validationMessage = '';
     } else {
       this.validationMessage = 'L\'arme a été ajoutée';
       this.errorMessage = '';
-      this.armeService.addArme(this.arme).then(r => this.router.navigate(['/detail-arme', r.id]));
+      this.edit ?
+        this.armeService.updateArme(this.arme) :
+        this.armeService.addArme(this.arme).then(r => this.router.navigate(['/detail-arme', r.id]));
     }
   }
 

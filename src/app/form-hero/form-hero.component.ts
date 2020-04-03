@@ -41,28 +41,12 @@ export class FormHeroComponent implements DoCheck, OnInit {
   }
 
   save() {
-    if (this.edit) {
-      this.updateHero();
-    } else {
-      this.insertHero();
-    }
-  }
-
-  updateHero() {
     if (this.hero.name !== '' && this.hero.name !== undefined) {
       this.validationMessage = 'Le héro a été enregistré';
       this.errorMessage = '';
-      this.heroService.updateHero(this.hero);
-    } else {
-      this.errorMessage = 'Le nom du hero ne doit pas être vide';
-      this.validationMessage = '';
-    }
-  }
-
-  insertHero() {
-    if (this.hero.name !== '' && this.hero.name !== undefined) {
-      this.errorMessage = '';
-      this.heroService.addHero(this.hero).then(r => this.router.navigate(['/detail/', r.id]));
+      this.edit ?
+        this.heroService.updateHero(this.hero) :
+        this.heroService.addHero(this.hero).then(r => this.router.navigate(['/detail/', r.id]));
     } else {
       this.errorMessage = 'Le nom du hero ne doit pas être vide';
       this.validationMessage = '';
